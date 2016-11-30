@@ -1,3 +1,23 @@
+<nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Angular Fire</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+</nav>
+
+
 <div class="small-12 columns text-center home">
   <h1>Angular Fire 2 Demo</h1>
   <h4>An Angular App 2 for demoing how angularfire 2 works </h4>
@@ -7,14 +27,33 @@
 <h1>
   {{title}}
 </h1>
+
+
+<h1>{{ (item | async)?.name }} -> {{ (item | async)?.size }}</h1>
+
+<h1>{{ item | async | json }}</h1>
+  <input type="text" #newname placeholder="Name" />
+  <input type="text" #newsize placeholder="Size" />
+  <br />
+  <button class="btn btn-primary" (click)="save(newname.value)">Set Name</button>
+  <button class="btn btn-primary" (click)="update(newsize.value)">Update Size</button>
+  <button class="btn btn-primary" (click)="delete()">Delete</button>
+
+
 <ul>
   <li *ngFor ="let item of items | async">
-    {{item.$key}} : {{item.$value}}
+    {{item.$key}} : {{item.color}} : {{ item.name}}
+
   </li>
 </ul>
 
-<div class="container">
-  <div class="row">
-    <app-auth></app-auth>
-  </div>
-</div>
+<ul>
+    <li *ngFor="let item of items | async">
+      <input type="name" #updateName [value]="item.name" />
+      <button class="btn btn-primary" (click)="updateItem(item.$key, updateName.value)">Update</button>
+      <button class="btn btn-primary" (click)="deleteItem(item.$key)">Delete</button>
+    </li>
+  </ul>
+  <input type="text" #newitem />
+  <button class="btn btn-primary" (click)="addItem(newitem.value)">Add</button>
+  <button class="btn btn-primary" (click)="deleteEverything()">Delete All</button>

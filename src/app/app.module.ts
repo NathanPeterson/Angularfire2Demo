@@ -5,20 +5,19 @@ import { HttpModule } from '@angular/http';
 
 import {AngularFireModule} from 'angularfire2';
 import { firebaseConfig } from './../environments/firebase.config';
+import { firebaseAuthConfig } from './../environments/firebaseAuth.config';
 
 import { AppComponent } from './app.component';
-import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
