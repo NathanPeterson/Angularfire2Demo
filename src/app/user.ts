@@ -6,12 +6,12 @@ export class User{
   address: string;
   //Enum type for flag of type of user
   //Password... string
-  gender: char;
+  gender: string;
   discipline: string;
   degreeOfProfessionalism: string; // Find better name
 
 
-  constructor(values: object{}){
+  constructor(values: Object = {}) {
     Object.assign(this, values);
   }
 }
