@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {AngularFireModule} from 'angularfire2';
-import { firebaseConfig } from './../environmnets/firebase.config';
+import { firebaseConfig } from './../environments/firebase.config';
 
 import { AppComponent } from './app.component';
 
